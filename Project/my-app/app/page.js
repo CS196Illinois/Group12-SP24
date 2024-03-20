@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import Image from 'next/image';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Home() {
@@ -28,43 +29,14 @@ export default function Home() {
   };
 
   return (
-    <main className="flex flex-col items-center justify-between p-8">
-      <h1 className="text-3xl font-bold mb-4">{title}</h1>
-
-      <form className="mb-4">
-        <label className="block mb-2">Flight Number</label>
-        <input type="text" placeholder="Enter flight number" className="border border-gray-300 rounded-md px-2 py-1 mb-2" />
-
-        <label className="block mb-2">Contact Info</label>
-        <input type="text" placeholder="Enter contact info" className="border border-gray-300 rounded-md px-2 py-1 mb-2" />
-
-        <label className="block mb-2">Time / Date</label>
-        <input type="datetime-local" className="border border-gray-300 rounded-md px-2 py-1 mb-2" />
-
-        <button type="submit" className="btn btn-primary">Submit</button>
-      </form>
-
-      <button onClick={changeTitle} className="btn btn-primary">Change Title</button>
-      <button onClick={addRandomFlight} className="bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600">Add Random Flight</button>
-
-      <table className="w-full mt-8">
-        <thead>
-          <tr>
-            <th className="border border-gray-300 px-4 py-2">Flight Number</th>
-            <th className="border border-gray-300 px-4 py-2">Flight Time</th>
-            <th className="border border-gray-300 px-4 py-2">Destination</th>
-          </tr>
-        </thead>
-        <tbody>
-          {flights.map((flight, index) => (
-            <tr key={index}>
-              <td className="border border-gray-300 px-4 py-2">{flight.flightNum}</td>
-              <td className="border border-gray-300 px-4 py-2">{flight.flightTime}</td>
-              <td className="border border-gray-300 px-4 py-2">{flight.destination}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <main>
+      <Image 
+      src="/3L2A7490.jpg"
+      width={500}
+      height={300}
+      priority={true}
+      alt="background"
+      />
     </main>
   );
 }
