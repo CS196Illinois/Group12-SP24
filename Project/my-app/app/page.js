@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Home() {
   const [title, setTitle] = useState('Flight Information');
@@ -40,10 +41,10 @@ export default function Home() {
         <label className="block mb-2">Time / Date</label>
         <input type="datetime-local" className="border border-gray-300 rounded-md px-2 py-1 mb-2" />
 
-        <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Submit</button>
+        <button type="submit" className="btn btn-primary">Submit</button>
       </form>
 
-      <button onClick={changeTitle} className="bg-gray-500 text-white py-2 px-4 rounded-md mr-2 hover:bg-gray-600">Change Title</button>
+      <button onClick={changeTitle} className="btn btn-primary">Change Title</button>
       <button onClick={addRandomFlight} className="bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600">Add Random Flight</button>
 
       <table className="w-full mt-8">
