@@ -6,6 +6,7 @@ import backgroundImage from './3L2A7490.jpg';
 export default function Home() {
 
   return (
+    // 
     <main>
       <div class='container d-flex align-item-center'>
         <Image
@@ -14,21 +15,41 @@ export default function Home() {
           priority={true}
           alt="background"
         />
-        <div class='row-auto'>
-          <div class='col-auto'>
-            <div class="card">
-              <div class="card-header">
-                Featured
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
+      </div>
+
+      <div class="container d-flex justify-content-center align-items-center vh-100">
+
+
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-title">Our mission is to simplify travel by providing an intuitive app for purchasing tickets and navigating journeys. We aim to make travel accessible and stress-free for all, revolutionizing the way people explore the world. </h6>
+
           </div>
         </div>
+
+
+
+        <div class="container d-flex col ">
+
+
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingFrom" placeholder="from" />
+            <label for="floatingFrom">From</label>
+          </div>
+
+
+
+          <div class="form-floating">
+            <input type="email" class="form-control" id="floatingTo" placeholder="to" />
+            <label for="floatingTo">To</label>
+          </div>
+
+        </div>
+
+
+
       </div>
+
 
     </main>
   );
