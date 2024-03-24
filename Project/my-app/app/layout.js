@@ -8,16 +8,16 @@ export default function RootLayout({ children }) {
   return (
     <div className={inter.className}>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="#">Next</a>
+        <a className="navbar-brand" href="#">Home</a>
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+              <a className="nav-link" href="#">Plan <span className="sr-only">(current)</span></a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">About</a>
+              <a className="nav-link" href="#">Bus</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Services</a>
+              <a className="nav-link" href="#">Flight</a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">Contact</a>
@@ -27,6 +27,12 @@ export default function RootLayout({ children }) {
       <div>
         {children}
       </div>
+      <footer className="footer bg-light text-center text-lg-start">
+        <div className="text-center p-3" style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}>
+          <a className="text-dark" href=" ">About Us</ a> | 
+          <a className="text-dark" href="#">More</ a>
+        </div>
+      </footer>
     </div>
   );
 }
