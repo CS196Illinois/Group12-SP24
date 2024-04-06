@@ -45,26 +45,26 @@ export default function Home() {
       <div className='container'>
         <div className='row align-items-center'>
           <div className='col'>
-            <div class="card">
-              <img src="./SF.jpeg" class="card-img-top" alt="SF" />
-              <div class="card-body">
-                <h5 class="card-title">San Fransisco</h5>
-                <p class="card-text">
+            <div className="card">
+              <img src="./SF.jpeg" className="card-img-top" alt="SF" />
+              <div className="card-body">
+                <h5 className="card-title">San Fransisco</h5>
+                <p className="card-text">
                   Discover San Francisco's iconic Golden Gate Bridge and vibrant neighborhoods, from historic Chinatown to the bohemian Mission District. Indulge in diverse culinary delights, explore world-class museums, and wander through bustling markets. With its blend of natural beauty and cultural diversity, San Francisco promises an unforgettable adventure in the City by the Bay.
                 </p>
-                <a href="#" class="btn btn-primary">Let's Go!</a>
+                <a href="#" className="btn btn-primary">Let's Go!</a>
               </div>
             </div>
           </div>
           <div className='col'>
-            <div class="card">
-              <img src="./tokyo.jpeg" class="card-img-top" alt="Tokyo" />
-              <div class="card-body">
-                <h5 class="card-title">Tokyo</h5>
-                <p class="card-text">
+            <div className="card">
+              <img src="./tokyo.jpeg" className="card-img-top" alt="Tokyo" />
+              <div className="card-body">
+                <h5 className="card-title">Tokyo</h5>
+                <p className="card-text">
                 Discover Tokyo, a dynamic metropolis where tradition meets innovation. Wander through the bustling streets of Shibuya, home to the famous scramble crossing, and marvel at the futuristic skyline of Shinjuku. Indulge in the diverse flavors of Japanese cuisine, from sushi to ramen, and immerse yourself in the rich cultural tapestry of this captivating city.
                   </p>
-                <a href="#" class="btn btn-primary">Let's Fly!</a>
+                <a href="#" className="btn btn-primary">Let's Fly!</a>
               </div>
             </div>
           </div>
