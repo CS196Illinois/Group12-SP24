@@ -1,6 +1,7 @@
-export default function Result() {
+export default function Page() {
     return (
         <div>
+        <h1>Test</h1>
             {formatPlan(generatePlan("ORD","TPE","202004210938"))}
         </div>
     )
