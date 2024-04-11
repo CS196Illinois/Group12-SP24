@@ -1,5 +1,6 @@
 "use client";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {generatePlan} from './result/page.js'
 
 export default function Page() {
 
@@ -32,7 +33,7 @@ export default function Page() {
     <div className="row">
       <div className="col">
         <div className='form-floating'>
-          <button className="btn btn-lg btn-primary" type="submit">GO</button>
+          <button className="btn btn-lg btn-primary" type="button" onClick={ generatePlan }>GO</button>
         </div>
       </div>
     </div>
