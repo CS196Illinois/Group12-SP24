@@ -1,3 +1,6 @@
+"use client"
+import { useState } from "react"
+
 const xmlFile = `<? xml version = "1.0" encoding = "UTF-8" ?>
 <OTA_AirDetailsRS PrimaryLangID="eng" Version="1.0" TransactionIdentifier="" FLSNote="This XML adds attributes not in the OTA XML spec.  All such attributes start with FLS" FLSDevice="ota-xml-expanded" xmlns="http://www.opentravel.org/OTA/2003/05">
     <Success />
@@ -26,8 +29,11 @@ const xmlFile = `<? xml version = "1.0" encoding = "UTF-8" ?>
     </FlightDetails>
 </OTA_AirDetailsRS>`
 
+var arrOfFlights
+
 export default function Page() {
     generatePlan()
+    formatPlan()
     return (
         <div>
             <h1>Test</h1>
@@ -53,6 +59,29 @@ function getInput() {
     //TODO: implement a function that will be called when the form is submitted to get the input
 }
 
+function processFlightDetails(err,result) {
+    var flightRecords = result['OTA_AirDetailsRS']['FlightDetails']
+    var indexes = Object.keys(flightRecords)
+    var resultArr = Array(indexes.length)
+    for (let i = 0; i < indexes.length; i++) {
+        //var to = console.log(flightRecords[0]['$']['TotalFlightTime'])
+        var to = flightRecords[0]['$']['FLSDepartureCode']
+        var from_ = flightRecords[0]['$']['FLSArrivalCode']
+        var toName = flightRecords[0]['$']['FLSDepartureName']
+        var fromName = flightRecords[0]['$']['FLSArrivalName']
+        // var fromName = 
+        // var airline =  
+        // var flightNum =
+        // var aircraft =
+        // var duration = 
+        var temp = new PlanObject(to,from_, toName,fromName,"","","","")
+        resultArr[i] = temp
+    }
+
+
+    arrOfFlights = resultArr
+}
+
 export function generatePlan() {
     // to: string indicating the departure location
     // from: string indicating the arrival location
@@ -76,18 +105,18 @@ export function generatePlan() {
     //     console.error(error);
     // }
     const parseString = require("xml2js").parseString;
-    parseString(xmlFile,(err,result)=>{
-        console.log(result['OTA_AirDetailsRS']['FlightDetails'])
-    })
+    parseString(xmlFile,processFlightDetails)
 
-    return
+    return 
 }
 
 function formatPlan(planObject) {
+    // getState(arrOfFlights)
     // planObject: object generated from the generatePlan() function
 
     // TODO: implement this function to return the html layout with the plan object data integrated
 
+    console.log(arrOfFlights)
     return (
         <div>
 
