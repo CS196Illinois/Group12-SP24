@@ -1,8 +1,23 @@
 "use client";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {generatePlan} from './result/page.js'
+import ResultPage from './result/resultpage.js';
+import React, { useEffect, useState } from "react";
 
 export default function Page() {
+  const [showResultPage, setShowResultPage] = useState(false);
+  const generatePlanAndShowResult = () => {
+    // call generatePlan 
+    // generatePlan();
+
+    // switch to showing the ResultPage
+    setShowResultPage(true);
+  };
+
+  if (showResultPage) {
+    return <ResultPage />;
+  }
+
 
   return (
     <div>
@@ -33,7 +48,7 @@ export default function Page() {
     <div className="row">
       <div className="col">
         <div className='form-floating'>
-          <button className="btn btn-lg btn-primary" type="button" onClick={ generatePlan }>GO</button>
+          <button className="btn btn-lg btn-primary" type="button" onClick={generatePlanAndShowResult}>GO</button>
         </div>
       </div>
     </div>
