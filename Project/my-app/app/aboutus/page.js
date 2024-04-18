@@ -8,6 +8,7 @@ export default function Page() {
   return (
     <div class='container text-center'>
       <h1>About Us</h1>
+      
       <h2>Mission Statement</h2>
 
       <p>At IlliniFly, our mission is to empower students at the University of Illinois Urbana-Champaign (UIUC) and beyond by providing a convenient and affordable platform for discovering, comparing, and booking travel options.

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OTA_AirDetailsRS PrimaryLangID="eng" Version="1.0" TransactionIdentifier="" FLSNote="This XML adds attributes not in the OTA XML spec.  All such attributes start with FLS" FLSDevice="ota-xml-expanded" xmlns="http://www.opentravel.org/OTA/2003/05">
+  <Success/>
+  <FLSResponseFields FLSOriginCode="ORD" FLSOriginName="O'Hare International Airport" FLSDestinationCode="SFO" FLSDestinationName="San Francisco International Airport" FLSStartDate="2024-04-18" FLSEndDate="2024-04-18" FLSResultCount="10" FLSRoutesFound="515" FLSBranchCount="3014" FLSTargetCount="2319" FLSRecordCount="3169736"/>
+  <FlightDetails TotalFlightTime="PT4H51M" TotalMiles="1844" TotalTripTime="PT4H51M" FLSDepartureDateTime="2024-04-18T06:25:00" FLSDepartureTimeOffset="-0500" FLSDepartureCode="ORD" FLSDepartureName="O'Hare International Airport" FLSArrivalDateTime="2024-04-18T09:16:00" FLSArrivalTimeOffset="-0700" FLSArrivalCode="SFO" FLSArrivalName="San Francisco International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="...4..." FLSDayIndicator="">
+    <FlightLegDetails DepartureDateTime="2024-04-18T06:25:00" FLSDepartureTimeOffset="-0500" ArrivalDateTime="2024-04-18T09:16:00" FLSArrivalTimeOffset="-0700" FlightNumber="336" JourneyDuration="PT4H51M" SequenceNumber="1" LegDistance="1844" FLSMeals="F" FLSInflightServices=" " FLSUUID="ORDSFO20240418UA336">
+      <DepartureAirport CodeContext="IATA" LocationCode="ORD" FLSLocationName="O'Hare International Airport" Terminal="1" FLSDayIndicator=""/>
+      <ArrivalAirport CodeContext="IATA" LocationCode="SFO" FLSLocationName="San Francisco International Airport" Terminal="3" FLSDayIndicator=""/>
+      <MarketingAirline Code="UA" CodeContext="IATA" CompanyShortName="United Airlines"/>
+      <Equipment AirEquipType="739"/>
+    </FlightLegDetails>
+  </FlightDetails>
+  <FlightDetails TotalFlightTime="PT4H46M" TotalMiles="1844" TotalTripTime="PT4H46M" FLSDepartureDateTime="2024-04-18T07:00:00" FLSDepartureTimeOffset="-0500" FLSDepartureCode="ORD" FLSDepartureName="O'Hare International Airport" FLSArrivalDateTime="2024-04-18T09:46:00" FLSArrivalTimeOffset="-0700" FLSArrivalCode="SFO" FLSArrivalName="San Francisco International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="...4..." FLSDayIndicator="">
+    <FlightLegDetails DepartureDateTime="2024-04-18T07:00:00" FLSDepartureTimeOffset="-0500" ArrivalDateTime="2024-04-18T09:46:00" FLSArrivalTimeOffset="-0700" FlightNumber="457" JourneyDuration="PT4H46M" SequenceNumber="1" LegDistance="1844" FLSMeals="" FLSInflightServices="  3/ 12/ 18" FLSUUID="ORDSFO20240418AS457">
+      <DepartureAirport CodeContext="IATA" LocationCode="ORD" FLSLocationName="O'Hare International Airport" Terminal="2" FLSDayIndicator=""/>
+      <ArrivalAirport CodeContext="IATA" LocationCode="SFO" FLSLocationName="San Francisco International Airport" Terminal="2" FLSDayIndicator=""/>
+      <MarketingAirline Code="AS" CodeContext="IATA" CompanyShortName="Alaska Airlines"/>
+      <Equipment AirEquipType="7M9"/>
+    </FlightLegDetails>
+  </FlightDetails>
+  <FlightDetails TotalFlightTime="PT4H44M" TotalMiles="1844" TotalTripTime="PT4H44M" FLSDepartureDateTime="2024-04-18T08:50:00" FLSDepartureTimeOffset="-0500" FLSDepartureCode="ORD" FLSDepartureName="O'Hare International Airport" FLSArrivalDateTime="2024-04-18T11:34:00" FLSArrivalTimeOffset="-0700" FLSArrivalCode="SFO" FLSArrivalName="San Francisco International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="...4..." FLSDayIndicator="">
+    <FlightLegDetails DepartureDateTime="2024-04-18T08:50:00" FLSDepartureTimeOffset="-0500" ArrivalDateTime="2024-04-18T11:34:00" FLSArrivalTimeOffset="-0700" FlightNumber="2171" JourneyDuration="PT4H44M" SequenceNumber="1" LegDistance="1844" FLSMeals="F" FLSInflightServices=" " FLSUUID="ORDSFO20240418UA2171">
+      <DepartureAirport CodeContext="IATA" LocationCode="ORD" FLSLocationName="O'Hare International Airport" Terminal="1" FLSDayIndicator=""/>
+      <ArrivalAirport CodeContext="IATA" LocationCode="SFO" FLSLocationName="San Francisco International Airport" Terminal="3" FLSDayIndicator=""/>
+      <MarketingAirline Code="UA" CodeContext="IATA" CompanyShortName="United Airlines"/>
+      <Equipment AirEquipType="777"/>
+    </FlightLegDetails>
+  </FlightDetails>
+  <FlightDetails TotalFlightTime="PT4H49M" TotalMiles="1844" TotalTripTime="PT4H49M" FLSDepartureDateTime="2024-04-18T11:10:00" FLSDepartureTimeOffset="-0500" FLSDepartureCode="ORD" FLSDepartureName="O'Hare International Airport" FLSArrivalDateTime="2024-04-18T13:59:00" FLSArrivalTimeOffset="-0700" FLSArrivalCode="SFO" FLSArrivalName="San Francisco International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="...4..." FLSDayIndicator="">
+    <FlightLegDetails DepartureDateTime="2024-04-18T11:10:00" FLSDepartureTimeOffset="-0500" ArrivalDateTime="2024-04-18T13:59:00" FLSArrivalTimeOffset="-0700" FlightNumber="343" JourneyDuration="PT4H49M" SequenceNumber="1" LegDistance="1844" FLSMeals="F" FLSInflightServices=" " FLSUUID="ORDSFO20240418UA343">
+      <DepartureAirport CodeContext="IATA" LocationCode="ORD" FLSLocationName="O'Hare International Airport" Terminal="1" FLSDayIndicator=""/>
+      <ArrivalAirport CodeContext="IATA" LocationCode="SFO" FLSLocationName="San Francisco International Airport" Terminal="3" FLSDayIndicator=""/>
+      <MarketingAirline Code="UA" CodeContext="IATA" CompanyShortName="United Airlines"/>
+      <Equipment AirEquipType="739"/>
+    </FlightLegDetails>
+  </FlightDetails>
+  <FlightDetails TotalFlightTime="PT4H50M" TotalMiles="1844" TotalTripTime="PT4H50M" FLSDepartureDateTime="2024-04-18T13:11:00" FLSDepartureTimeOffset="-0500" FLSDepartureCode="ORD" FLSDepartureName="O'Hare International Airport" FLSArrivalDateTime="2024-04-18T16:01:00" FLSArrivalTimeOffset="-0700" FLSArrivalCode="SFO" FLSArrivalName="San Francisco International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="...4..." FLSDayIndicator="">
+    <FlightLegDetails DepartureDateTime="2024-04-18T13:11:00" FLSDepartureTimeOffset="-0500" ArrivalDateTime="2024-04-18T16:01:00" FLSArrivalTimeOffset="-0700" FlightNumber="1878" JourneyDuration="PT4H50M" SequenceNumber="1" LegDistance="1844" FLSMeals="F" FLSInflightServices=" " FLSUUID="ORDSFO20240418UA1878">
+      <DepartureAirport CodeContext="IATA" LocationCode="ORD" FLSLocationName="O'Hare International Airport" Terminal="1" FLSDayIndicator=""/>
+      <ArrivalAirport CodeContext="IATA" LocationCode="SFO" FLSLocationName="San Francisco International Airport" Terminal="3" FLSDayIndicator=""/>
+      <MarketingAirline Code="UA" CodeContext="IATA" CompanyShortName="United Airlines"/>
+      <Equipment AirEquipType="739"/>
+    </FlightLegDetails>
+  </FlightDetails>
+  <FlightDetails TotalFlightTime="PT4H46M" TotalMiles="1844" TotalTripTime="PT4H46M" FLSDepartureDateTime="2024-04-18T13:40:00" FLSDepartureTimeOffset="-0500" FLSDepartureCode="ORD" FLSDepartureName="O'Hare International Airport" FLSArrivalDateTime="2024-04-18T16:26:00" FLSArrivalTimeOffset="-0700" FLSArrivalCode="SFO" FLSArrivalName="San Francisco International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="...4..." FLSDayIndicator="">
+    <FlightLegDetails DepartureDateTime="2024-04-18T13:40:00" FLSDepartureTimeOffset="-0500" ArrivalDateTime="2024-04-18T16:26:00" FLSArrivalTimeOffset="-0700" FlightNumber="2639" JourneyDuration="PT4H46M" SequenceNumber="1" LegDistance="1844" FLSMeals="F" FLSInflightServices="  4/ 12/ 18/ 22/ 23/ 26" FLSUUID="ORDSFO20240418AA2639">
+      <DepartureAirport CodeContext="IATA" LocationCode="ORD" FLSLocationName="O'Hare International Airport" Terminal="3" FLSDayIndicator=""/>
+      <ArrivalAirport CodeContext="IATA" LocationCode="SFO" FLSLocationName="San Francisco International Airport" Terminal="1" FLSDayIndicator=""/>
+      <MarketingAirline Code="AA" CodeContext="IATA" CompanyShortName="American Airlines"/>
+      <Equipment AirEquipType="738"/>
+    </FlightLegDetails>
+  </FlightDetails>
+  <FlightDetails TotalFlightTime="PT4H50M" TotalMiles="1844" TotalTripTime="PT4H50M" FLSDepartureDateTime="2024-04-18T14:20:00" FLSDepartureTimeOffset="-0500" FLSDepartureCode="ORD" FLSDepartureName="O'Hare International Airport" FLSArrivalDateTime="2024-04-18T17:10:00" FLSArrivalTimeOffset="-0700" FLSArrivalCode="SFO" FLSArrivalName="San Francisco International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="...4..." FLSDayIndicator="">
+    <FlightLegDetails DepartureDateTime="2024-04-18T14:20:00" FLSDepartureTimeOffset="-0500" ArrivalDateTime="2024-04-18T17:10:00" FLSArrivalTimeOffset="-0700" FlightNumber="1634" JourneyDuration="PT4H50M" SequenceNumber="1" LegDistance="1844" FLSMeals="F" FLSInflightServices=" " FLSUUID="ORDSFO20240418UA1634">
+      <DepartureAirport CodeContext="IATA" LocationCode="ORD" FLSLocationName="O'Hare International Airport" Terminal="1" FLSDayIndicator=""/>
+      <ArrivalAirport CodeContext="IATA" LocationCode="SFO" FLSLocationName="San Francisco International Airport" Terminal="3" FLSDayIndicator=""/>
+      <MarketingAirline Code="UA" CodeContext="IATA" CompanyShortName="United Airlines"/>
+      <Equipment AirEquipType="739"/>
+    </FlightLegDetails>
+  </FlightDetails>
+  <FlightDetails TotalFlightTime="PT4H39M" TotalMiles="1844" TotalTripTime="PT4H39M" FLSDepartureDateTime="2024-04-18T16:21:00" FLSDepartureTimeOffset="-0500" FLSDepartureCode="ORD" FLSDepartureName="O'Hare International Airport" FLSArrivalDateTime="2024-04-18T19:00:00" FLSArrivalTimeOffset="-0700" FLSArrivalCode="SFO" FLSArrivalName="San Francisco International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="...4..." FLSDayIndicator="">
+    <FlightLegDetails DepartureDateTime="2024-04-18T16:21:00" FLSDepartureTimeOffset="-0500" ArrivalDateTime="2024-04-18T19:00:00" FLSArrivalTimeOffset="-0700" FlightNumber="1755" JourneyDuration="PT4H39M" SequenceNumber="1" LegDistance="1844" FLSMeals="F" FLSInflightServices=" " FLSUUID="ORDSFO20240418UA1755">
+      <DepartureAirport CodeContext="IATA" LocationCode="ORD" FLSLocationName="O'Hare International Airport" Terminal="1" FLSDayIndicator=""/>
+      <ArrivalAirport CodeContext="IATA" LocationCode="SFO" FLSLocationName="San Francisco International Airport" Terminal="3" FLSDayIndicator=""/>
+      <MarketingAirline Code="UA" CodeContext="IATA" CompanyShortName="United Airlines"/>
+      <Equipment AirEquipType="777"/>
+    </FlightLegDetails>
+  </FlightDetails>
+  <FlightDetails TotalFlightTime="PT4H51M" TotalMiles="1844" TotalTripTime="PT4H51M" FLSDepartureDateTime="2024-04-18T18:20:00" FLSDepartureTimeOffset="-0500" FLSDepartureCode="ORD" FLSDepartureName="O'Hare International Airport" FLSArrivalDateTime="2024-04-18T21:11:00" FLSArrivalTimeOffset="-0700" FLSArrivalCode="SFO" FLSArrivalName="San Francisco International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="...4..." FLSDayIndicator="">
+    <FlightLegDetails DepartureDateTime="2024-04-18T18:20:00" FLSDepartureTimeOffset="-0500" ArrivalDateTime="2024-04-18T21:11:00" FLSArrivalTimeOffset="-0700" FlightNumber="519" JourneyDuration="PT4H51M" SequenceNumber="1" LegDistance="1844" FLSMeals="F" FLSInflightServices=" " FLSUUID="ORDSFO20240418UA519">
+      <DepartureAirport CodeContext="IATA" LocationCode="ORD" FLSLocationName="O'Hare International Airport" Terminal="1" FLSDayIndicator=""/>
+      <ArrivalAirport CodeContext="IATA" LocationCode="SFO" FLSLocationName="San Francisco International Airport" Terminal="3" FLSDayIndicator=""/>
+      <MarketingAirline Code="UA" CodeContext="IATA" CompanyShortName="United Airlines"/>
+      <Equipment AirEquipType="753"/>
+    </FlightLegDetails>
+  </FlightDetails>
+  <FlightDetails TotalFlightTime="PT4H48M" TotalMiles="1844" TotalTripTime="PT4H48M" FLSDepartureDateTime="2024-04-18T20:20:00" FLSDepartureTimeOffset="-0500" FLSDepartureCode="ORD" FLSDepartureName="O'Hare International Airport" FLSArrivalDateTime="2024-04-18T23:08:00" FLSArrivalTimeOffset="-0700" FLSArrivalCode="SFO" FLSArrivalName="San Francisco International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="...4..." FLSDayIndicator="">
+    <FlightLegDetails DepartureDateTime="2024-04-18T20:20:00" FLSDepartureTimeOffset="-0500" ArrivalDateTime="2024-04-18T23:08:00" FLSArrivalTimeOffset="-0700" FlightNumber="2113" JourneyDuration="PT4H48M" SequenceNumber="1" LegDistance="1844" FLSMeals="F" FLSInflightServices="  4/ 12/ 18/ 22/ 23/ 26" FLSUUID="ORDSFO20240418AA2113">
+      <DepartureAirport CodeContext="IATA" LocationCode="ORD" FLSLocationName="O'Hare International Airport" Terminal="3" FLSDayIndicator=""/>
+      <ArrivalAirport CodeContext="IATA" LocationCode="SFO" FLSLocationName="San Francisco International Airport" Terminal="1" FLSDayIndicator=""/>
+      <MarketingAirline Code="AA" CodeContext="IATA" CompanyShortName="American Airlines"/>
+      <Equipment AirEquipType="738"/>
+    </FlightLegDetails>
+  </FlightDetails>
+</OTA_AirDetailsRS>
