@@ -101,7 +101,7 @@ function convertAircraftType(input) {
             return "Boeing " + input[0]+input[1]+'7-'+input[2]+'00'
         }
         if (input[1] == 'M') {
-            return "Boeing 737 MAX " +input[2]
+            return "Boeing 737 MAX " + input[2]
         }
     } else if (input[0] == '3') {
         return "Airbus A" + input
