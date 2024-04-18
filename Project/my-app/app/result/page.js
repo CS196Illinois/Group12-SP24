@@ -41,6 +41,7 @@ export default function Page() {
     var searchParams = useSearchParams()
     console.log(searchParams.get("to"))
     console.log(searchParams.get("from"))
+    console.log(searchParams.get("date"))
     // processFlightDetails()
     return (
         <div>

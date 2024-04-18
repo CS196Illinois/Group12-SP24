@@ -1,10 +1,14 @@
 "use client";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useRouter } from 'next/navigation.js';
-import React from "react";
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function Page() {
   const router = useRouter()
+  const [startDate, setStartDate] = useState(new Date());
 
   return (
     <div>
@@ -32,11 +36,13 @@ export default function Page() {
       </div>
     </div>
 
+    <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+
     <div className="row">
       <div className="col">
         <div className='form-floating'>
           <button className="btn btn-lg btn-primary" type="button" onClick={(e)=>{
-            router.push(`/result?to=${document.getElementById("floatingTo").value}&from=${document.getElementById("floatingFrom").value}`,undefined,{shallow:true})
+            router.push(`/result?to=${document.getElementById("floatingTo").value}&from=${document.getElementById("floatingFrom").value}&date=${startDate}`,undefined,{shallow:true})
             }}>GO</button>
         </div>
       </div>
