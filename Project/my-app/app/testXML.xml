@@ -15,7 +15,7 @@
                 <DepartureAirport CodeContext="IATA" LocationCode="SFO" FLSLocationName="San Francisco International Airport" Terminal="2" FLSDayIndicator="" />
                 <ArrivalAirport CodeContext="IATA" LocationCode="MSP" FLSLocationName="Saint Paul International Airport" Terminal="1" FLSDayIndicator="" />
                 <MarketingAirline Code="DL" CodeContext="IATA" CompanyShortName="Delta Air Lines" />
-                <Equipment AirEquipType="739" />
+                <Equipment AirEquipType="bleh" />
             </FlightLegDetails>
             <FlightLegDetails DepartureDateTime="2024-04-11T07:00:00" FLSDepartureTimeOffset="-0500" ArrivalDateTime="2024-04-11T08:35:00" FLSArrivalTimeOffset="-0500" FlightNumber="2946" JourneyDuration="PT1H35M" SequenceNumber="2" LegDistance="334" FLSMeals="" FLSInflightServices="  3/ 18/ 22/ 27/ 99" FLSUUID="MSPORD20240411DL2946">
                 <DepartureAirport CodeContext="IATA" LocationCode="MSP" FLSLocationName="Saint Paul International Airport" Terminal="1" FLSDayIndicator="" />

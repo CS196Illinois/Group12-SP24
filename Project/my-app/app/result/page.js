@@ -18,7 +18,7 @@ const xmlFile = `<? xml version = "1.0" encoding = "UTF-8" ?>
             <DepartureAirport CodeContext="IATA" LocationCode="SFO" FLSLocationName="San Francisco International Airport" Terminal="2" FLSDayIndicator="" />
             <ArrivalAirport CodeContext="IATA" LocationCode="MSP" FLSLocationName="Saint Paul International Airport" Terminal="1" FLSDayIndicator="" />
             <MarketingAirline Code="DL" CodeContext="IATA" CompanyShortName="Delta Air Lines" />
-            <Equipment AirEquipType="739" />
+            <Equipment AirEquipType="320" />
         </FlightLegDetails>
         <FlightLegDetails DepartureDateTime="2024-04-11T07:00:00" FLSDepartureTimeOffset="-0500" ArrivalDateTime="2024-04-11T08:35:00" FLSArrivalTimeOffset="-0500" FlightNumber="2946" JourneyDuration="PT1H35M" SequenceNumber="2" LegDistance="334" FLSMeals="" FLSInflightServices="  3/ 18/ 22/ 27/ 99" FLSUUID="MSPORD20240411DL2946">
             <DepartureAirport CodeContext="IATA" LocationCode="MSP" FLSLocationName="Saint Paul International Airport" Terminal="1" FLSDayIndicator="" />
@@ -34,6 +34,7 @@ var arrOfFlights
 export default function Page() {
     generatePlan()
     formatPlan()
+    // processFlightDetails()
     return (
         <div>
             <h1>Test</h1>
@@ -43,7 +44,7 @@ export default function Page() {
 }
 
 class PlanObject {
-    constructor(to, toName, from, fromName, airline, flightNum, aircraft, duration) {
+    constructor(to, toName, from, fromName, airline, flightNum, aircraft, duration, dTime, aTime) {
         this.to = to
         this.toName = toName
         this.from = from
@@ -52,6 +53,8 @@ class PlanObject {
         this.flightNum = flightNum
         this.aircraft = aircraft
         this.duration = duration
+        this.dTime = dTime
+        this.aTime = aTime
     }
 }
 
@@ -63,23 +66,41 @@ function processFlightDetails(err,result) {
     var flightRecords = result['OTA_AirDetailsRS']['FlightDetails']
     var indexes = Object.keys(flightRecords)
     var resultArr = Array(indexes.length)
+    console.log(flightRecords)
     for (let i = 0; i < indexes.length; i++) {
-        //var to = console.log(flightRecords[0]['$']['TotalFlightTime'])
-        var to = flightRecords[0]['$']['FLSDepartureCode']
-        var from_ = flightRecords[0]['$']['FLSArrivalCode']
-        var toName = flightRecords[0]['$']['FLSDepartureName']
-        var fromName = flightRecords[0]['$']['FLSArrivalName']
-        // var fromName = 
-        // var airline =  
-        // var flightNum =
-        // var aircraft =
-        // var duration = 
-        var temp = new PlanObject(to,from_, toName,fromName,"","","","")
+        // console.log(flightRecords[0]['$'])
+        var to = flightRecords[i]['$']['FLSDepartureCode']
+        var from_ = flightRecords[i]['$']['FLSArrivalCode']
+        var toName = flightRecords[i]['$']['FLSDepartureName']
+        var fromName = flightRecords[i]['$']['FLSArrivalName']
+        var airline =  flightRecords[i]['FlightLegDetails'][0]['MarketingAirline'][0]['$']['CompanyShortName']
+        var flightNum = flightRecords[i]['FlightLegDetails'][0]['$']['FlightNumber']
+        var aircraft = convertAircraftType(flightRecords[i]['FlightLegDetails'][0]['Equipment'][0]['$']['AirEquipType'])
+        var duration = flightRecords[i]['$']['TotalFlightTime']
+        var dTime = flightRecords[i]['$']['FLSDepartureDateTime']
+        var aTime = flightRecords[i]['$']['FLSArrivalDateTime']
+
+        var temp = new PlanObject(to,from_, toName,fromName,airline,flightNum,aircraft,duration,dTime,aTime)
         resultArr[i] = temp
     }
-
-
     arrOfFlights = resultArr
+}
+
+function convertAircraftType(input) {
+    if (input[0] == '7') {
+        if (input[1] == '3') {
+            return "Boeing " + input[0]+input[1]+'7-'+input[2]+'00'
+        }
+        if (input[1] == 'M') {
+            return "Boeing 737 MAX " +input[2]
+        }
+    } else if (input[0] == '3') {
+        return "Airbus A" + input
+    } else if (input[0] == '1') {
+        return "Embraer " + input
+    } else {
+        return input
+    }
 }
 
 export function generatePlan() {
