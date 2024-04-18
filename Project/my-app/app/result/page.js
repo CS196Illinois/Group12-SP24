@@ -2,6 +2,7 @@
 import { useState } from "react"
 import React from "react"
 import ResultPage from './resultpage';
+import { useSearchParams } from "next/navigation";
 
 const xmlFile = `<? xml version = "1.0" encoding = "UTF-8" ?>
 <OTA_AirDetailsRS PrimaryLangID="eng" Version="1.0" TransactionIdentifier="" FLSNote="This XML adds attributes not in the OTA XML spec.  All such attributes start with FLS" FLSDevice="ota-xml-expanded" xmlns="http://www.opentravel.org/OTA/2003/05">
@@ -36,6 +37,10 @@ var arrOfFlights
 export default function Page() {
     generatePlan()
     formatPlan()
+
+    var searchParams = useSearchParams()
+    console.log(searchParams.get("to"))
+    console.log(searchParams.get("from"))
     // processFlightDetails()
     return (
         <div>
