@@ -44,10 +44,42 @@ export default function Page() {
     console.log(searchParams.get("date"))
     // processFlightDetails()
     return (
-        <div>
-            {/*<h1>Test</h1> */}
-            {/* {formatPlan(generatePlan("ORD", "TPE", "202004210938"))} */}
-            < ResultPage/>
+        <div className='position-relative d-flex align-items-center justify-content-center vh-100'>
+            <img src="./hnbay.jpg" className="img-fluid position-absolute top-0 start-0 w-100 h-100" style={{ objectFit: 'cover' }} alt="background" />
+            
+            <div className="container">
+                <div className="row mt-5 align-items-center justify-content-center">
+                    <div className="col-md-6">
+                        <h4>Airline Information</h4>
+                        <div className="card">
+                            <img src="./assets/airline.jpg" style={{ width: '100%', height: '300px', objectFit: 'cover' }} className="card-img-top" alt="Airline" />
+                            <div className="card-body">
+                                <h5 className="card-title">Airline Name</h5>
+                                <p className="card-text">Flight details, timings, and price.</p>
+                                <a href="#" className="btn btn-primary">Select</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="col-md-6">
+                        <h4>Bus Route Information</h4>
+                        <div className="card">
+                            <img src="./assets/bus.jpg" style={{ width: '100%', height: '300px', objectFit: 'cover' }} className="card-img-top" alt="Bus" />
+                            <div className="card-body">
+                                <h5 className="card-title">Bus Company Name</h5>
+                                <p className="card-text">Route details, timings, and price.</p>
+                                <a href="#" className="btn btn-primary">Select</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* <div className="row mt-5">
+                    <div className="col text-right">
+                        <button type="button" className="btn btn-primary btn-lg">Next</button>
+                    </div>
+                </div>       */}
+            </div>
         </div>
     )
 }
