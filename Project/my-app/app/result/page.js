@@ -1,5 +1,7 @@
 "use client"
 import { useState } from "react"
+import React from "react"
+import ResultPage from './resultpage';
 
 const xmlFile = `<? xml version = "1.0" encoding = "UTF-8" ?>
 <OTA_AirDetailsRS PrimaryLangID="eng" Version="1.0" TransactionIdentifier="" FLSNote="This XML adds attributes not in the OTA XML spec.  All such attributes start with FLS" FLSDevice="ota-xml-expanded" xmlns="http://www.opentravel.org/OTA/2003/05">
@@ -37,8 +39,9 @@ export default function Page() {
     // processFlightDetails()
     return (
         <div>
-            <h1>Test</h1>
+            {/*<h1>Test</h1> */}
             {/* {formatPlan(generatePlan("ORD", "TPE", "202004210938"))} */}
+            < ResultPage/>
         </div>
     )
 }
