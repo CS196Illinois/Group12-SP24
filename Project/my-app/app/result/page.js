@@ -3,6 +3,7 @@ import { useState } from "react"
 import React from "react"
 import ResultPage from './resultpage';
 import { useSearchParams } from "next/navigation";
+import axios from 'axios';
 
 const xmlFile = `<?xml version="1.0" encoding="UTF-8"?>
 <OTA_AirDetailsRS PrimaryLangID="eng" Version="1.0" TransactionIdentifier="" xmlns="http://www.opentravel.org/OTA/2003/05">
@@ -14,13 +15,9 @@ const xmlFile = `<?xml version="1.0" encoding="UTF-8"?>
 var arrOfFlights
 
 export default function Page() {
-    generatePlan()
-    formatPlan()
-
     var searchParams = useSearchParams()
-    console.log(searchParams.get("to"))
-    console.log(searchParams.get("from"))
-    console.log(searchParams.get("date"))
+    generatePlan(searchParams.get("from"),searchParams.get("to"),searchParams.get("date"))
+    formatPlan()
     // processFlightDetails()
     return (
         <div className='position-relative d-flex align-items-center justify-content-center vh-100'>
@@ -147,30 +144,35 @@ function convertAircraftType(input) {
     }
 }
 
-export function generatePlan() {
+async function generatePlan(from,to ,date) {
     // to: string indicating the departure location
     // from: string indicating the arrival location
     // dateTime: dateTime object representing the departure time
     // TODO: implement this function to return a PlanObject representing the plan by requesting from the API
+    var searchParams = useSearchParams()
 
-    // const options = {
-    //     method: 'GET',
-    //     url: 'https://timetable-lookup.p.rapidapi.com/TimeTable/SFO/LAX/202404/',
-    //     headers: {
-    //         'X-RapidAPI-Key': 'a7905cdcfbmsh0ec22c6630dd2dep14234ajsn084ced1ba76b',
-    //         'X-RapidAPI-Host': 'timetable-lookup.p.rapidapi.com'
-    //     }
-    // };
+    const options = {
+        method: 'GET',
+        url: `https://timetable-lookup.p.rapidapi.com/TimeTable/${from}/${to}/${date}/`,
+        headers: {
+            'X-RapidAPI-Key': 'bc145956d8msh6f48b3898399cb5p1ed48ajsn24f43d925de7',
+            'X-RapidAPI-Host': 'timetable-lookup.p.rapidapi.com'
+        },
+        params: {
+            Results: '25',
+            Connection: 'NONSTOP'
+          },
+    };
 
-
-    // try {
-    //     const response = await axios.request(options);
-    //     console.log(response.data);
-    // } catch (error) {
-    //     console.error(error);
-    // }
     const parseString = require("xml2js").parseString;
-    parseString(xmlFile,processFlightDetails)
+    try {
+        const response = await axios.request(options);
+        parseString(response,processFlightDetails);
+        console.log(response);
+        console.log(arrOfFlights);
+    } catch (error) {
+        console.error(error);
+    }
 
     return 
 }

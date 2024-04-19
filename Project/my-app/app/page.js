@@ -6,6 +6,17 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 
+function yyyymmdd(date) {
+  var x = date;
+  var y = x.getFullYear().toString();
+  var m = (x.getMonth() + 1).toString();
+  var d = x.getDate().toString();
+  (d.length == 1) && (d = '0' + d);
+  (m.length == 1) && (m = '0' + m);
+  var yyyymmdd = y + m + d;
+  return yyyymmdd;
+}
+
 export default function Page() {
   const router = useRouter()
   const [startDate, setStartDate] = useState(new Date());
@@ -36,13 +47,13 @@ export default function Page() {
       </div>
     </div>
 
-    <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+    <DatePicker selected={startDate} onChange={(date) => setStartDate(date)}/>
 
     <div className="row">
       <div className="col">
         <div className='form-floating'>
           <button className="btn btn-lg btn-primary" type="button" onClick={(e)=>{
-            router.push(`/result?to=${document.getElementById("floatingTo").value}&from=${document.getElementById("floatingFrom").value}&date=${startDate}`,undefined,{shallow:true})
+            router.push(`/result?to=${document.getElementById("floatingTo").value}&from=${document.getElementById("floatingFrom").value}&date=${yyyymmdd(startDate)}`,undefined,{shallow:true})
             }}>GO</button>
         </div>
       </div>
