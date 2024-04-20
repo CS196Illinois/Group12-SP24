@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
             <a className="nav-link" href="#">Flight</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">Contact</a>
+            <a className="nav-link" href="/aboutus">Contact</a>
           </li>
         </ul>
       </nav>
