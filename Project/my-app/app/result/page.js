@@ -26,55 +26,86 @@ class PlanObject {
         this.aTime = aTime
     }
 }
+const FlightCard = ({ flight }) => (
+    <div className="col-md-6">
+        <div className="card">
+            <div className="card-body">
+                <h5 className="card-title">Flight Number: {flight.flightNum}</h5>
+                <p className="card-text">Airline: {flight.airline}</p>
+                <p className="card-text">Aircraft: {flight.aircraft}</p>
+                <p className="card-text">Duration: {flight.duration}</p>
+                <p className="card-text">Departure Time: {flight.dTime}</p>
+                <p className="card-text">Arrival Time: {flight.aTime}</p>
+                <p className="card-text">Departure From: {flight.toName}</p>
+                <p className="card-text">Arrival At: {flight.fromName}</p>
+            </div>
+        </div>
+    </div>
+);
 
-var arrOfFlights = Array(1);
+
+
+var arrOfFlights = Array(3);
 arrOfFlights[0] = new PlanObject("SFO", "San Francisco", "ORD", "Chicago", "United", "007", "737", "PT4H46M", "2024-04-18T00:00:00", "2024-04-18T00:00:00");
+arrOfFlights[1] = new PlanObject("JFO", "San Francisco", "ORD", "Chicago", "United", "007", "737", "PT4H46M", "2024-04-18T00:00:00", "2024-04-18T00:00:00");
+arrOfFlights[2] = new PlanObject("JFO", "San Francisco", "ORD", "Chicago", "United", "007", "737", "PT4H46M", "2024-04-18T00:00:00", "2024-04-18T00:00:00");
 
 
 export default function Page() {
-    var searchParams = useSearchParams()
-    console.log(`api called ${searchParams.get("from")}`)
-    generatePlan(searchParams.get("from"),searchParams.get("to"),searchParams.get("date"))
-    formatPlan()
+    
+    const [flights, setFlights] = useState([]);
+    const searchParams = useSearchParams();
+
+    //generatePlan()
+    
+    /*
+    useEffect(() => {
+        
+        setFlights(arrOfFlights);
+        async function fetchFlights() {
+            const from = searchParams.get("from");
+            const to = searchParams.get("to");
+            const date = searchParams.get("date");
+
+            try {
+                const response = await axios.get(
+                    `https://timetable-lookup.p.rapidapi.com/TimeTable/${from}/${to}/${date}/`,
+                    {
+                        headers: {
+                            'X-RapidAPI-Key': 'your-key-here',
+                            'X-RapidAPI-Host': 'timetable-lookup.p.rapidapi.com',
+                        },
+                        params: { Results: '25', Connection: 'NONSTOP' },
+                    }
+                );
+
+                const xmlData = response.data;
+                const flightDetails = extractFlightDetails(xmlData);
+
+                setFlights(flightDetails);
+            } catch (error) {
+                console.error("Error fetching flights:", error);
+            }
+        }
+
+        fetchFlights();
+        
+    }, [searchParams]); // Dependencies ensure this effect only runs when these values change.
+    */
+
     return (
         <div className='position-relative d-flex align-items-center justify-content-center vh-100'>
-            <img src="./hnbay.jpg" className="img-fluid position-absolute top-0 start-0 w-100 h-100" style={{ objectFit: 'cover',zIndex:-10 }} alt="background" />
-            
+            <img src="./hnbay.jpg" className="img-fluid position-absolute top-0 start-0 w-100 h-100" style={{ objectFit: 'cover', zIndex: -10 }} alt="background" />
+
             <div className="container" id="cardContainer">
                 <div className="row mt-5 align-items-center justify-content-center">
-                    <div className="col-md-6">
-                        <h4>Airline Information</h4>
-                        <div className="card">
-                            <img src="./assets/airline.jpg" style={{ width: '100%', height: '300px', objectFit: 'cover' }} className="card-img-top" alt="Airline" />
-                            <div className="card-body">
-                                <h5 className="card-title">Airline Name</h5>
-                                <p className="card-text">Flight details, timings, and price.</p>
-                                <a href="#" className="btn btn-primary">Select</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="col-md-6">
-                        <h4>Bus Route Information</h4>
-                        <div className="card">
-                            <img src="./assets/bus.jpg" style={{ width: '100%', height: '300px', objectFit: 'cover' }} className="card-img-top" alt="Bus" />
-                            <div className="card-body">
-                                <h5 className="card-title">Bus Company Name</h5>
-                                <p className="card-text">Route details, timings, and price.</p>
-                                <a href="#" className="btn btn-primary">Select</a>
-                            </div>
-                        </div>
-                    </div>
+                    {arrOfFlights.map((flight, index) => (
+                        <FlightCard key={index} flight={flight} />
+                    ))}
                 </div>
-
-                {/* <div className="row mt-5">
-                    <div className="col text-right">
-                        <button type="button" className="btn btn-primary btn-lg">Next</button>
-                    </div>
-                </div>       */}
             </div>
         </div>
-    )
+    );
 }
 
 
