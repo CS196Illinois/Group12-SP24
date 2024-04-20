@@ -28,7 +28,7 @@ class PlanObject {
 }
 const FlightCard = ({ flight }) => (
     <div className="col-md-6">
-        <div className="card">
+        <div className="card" style={{margin:"2%"}}>
             <div className="card-body">
                 <h5 className="card-title">Flight Number: {flight.flightNum}</h5>
                 <p className="card-text">Airline: {flight.airline}</p>
@@ -56,7 +56,7 @@ export default function Page() {
     const [flights, setFlights] = useState([]);
     const searchParams = useSearchParams();
 
-    //generatePlan()
+    generatePlan()
     
     /*
     useEffect(() => {
