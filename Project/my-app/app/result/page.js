@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import React from "react"
 import ResultPage from './resultpage';
 import { useSearchParams } from "next/navigation";
@@ -12,19 +12,35 @@ const xmlFile = `<?xml version="1.0" encoding="UTF-8"?>
   <!--  Warning: No flights found  -->
 </OTA_AirDetailsRS>`
 
-var arrOfFlights
+class PlanObject {
+    constructor(to, toName, from, fromName, airline, flightNum, aircraft, duration, dTime, aTime) {
+        this.to = to
+        this.toName = toName
+        this.from = from
+        this.fromName = fromName
+        this.airline = airline
+        this.flightNum = flightNum
+        this.aircraft = aircraft
+        this.duration = duration
+        this.dTime = dTime
+        this.aTime = aTime
+    }
+}
+
+var arrOfFlights = Array(1);
+arrOfFlights[0] = new PlanObject("SFO", "San Francisco", "ORD", "Chicago", "United", "007", "737", "PT4H46M", "2024-04-18T00:00:00", "2024-04-18T00:00:00");
+
 
 export default function Page() {
     var searchParams = useSearchParams()
     console.log(`api called ${searchParams.get("from")}`)
     generatePlan(searchParams.get("from"),searchParams.get("to"),searchParams.get("date"))
-    // formatPlan()
-    // processFlightDetails()
+    formatPlan()
     return (
         <div className='position-relative d-flex align-items-center justify-content-center vh-100'>
-            <img src="./hnbay.jpg" className="img-fluid position-absolute top-0 start-0 w-100 h-100" style={{ objectFit: 'cover' }} alt="background" />
+            <img src="./hnbay.jpg" className="img-fluid position-absolute top-0 start-0 w-100 h-100" style={{ objectFit: 'cover',zIndex:-10 }} alt="background" />
             
-            <div className="container">
+            <div className="container" id="cardContainer">
                 <div className="row mt-5 align-items-center justify-content-center">
                     <div className="col-md-6">
                         <h4>Airline Information</h4>
@@ -61,20 +77,7 @@ export default function Page() {
     )
 }
 
-class PlanObject {
-    constructor(to, toName, from, fromName, airline, flightNum, aircraft, duration, dTime, aTime) {
-        this.to = to
-        this.toName = toName
-        this.from = from
-        this.fromName = fromName
-        this.airline = airline
-        this.flightNum = flightNum
-        this.aircraft = aircraft
-        this.duration = duration
-        this.dTime = dTime
-        this.aTime = aTime
-    }
-}
+
 
 function getInput() {
     //TODO: implement a function that will be called when the form is submitted to get the input
@@ -179,15 +182,57 @@ async function generatePlan(from,to ,date) {
 }
 
 function formatPlan(planObject) {
-    // getState(arrOfFlights)
     // planObject: object generated from the generatePlan() function
 
     // TODO: implement this function to return the html layout with the plan object data integrated
 
-    console.log(arrOfFlights)
-    return (
-        <div>
+    var formattedHTML = ''
+    
+    for(let i = 0; i < arrOfFlights.length;i += 2) {
+        formattedHTML += `<div className="row mt-5 align-items-center justify-content-center">`;
+        formattedHTML += `
+                <div className="col-md-6">
+                    <div className="card" style="width 18rem; "}}>
+                        
+                        <div className="card-body">
+                            <h5 className="card-title">Flight Number: ${arrOfFlights[i].flightNum}</h5>
+                            <p className="card-text">Airline Company: ${arrOfFlights[i].airline}</p>
+                            <p className="card-text">Aircraft: ${arrOfFlights[i].aircraft}</p>
+                            <p className="card-text">Duration: ${arrOfFlights[i].duration}</p>
+                            <p className="card-text">Departure Time: ${arrOfFlights[i].dTime}</p>
+                            <p className="card-text">Arrival Time: ${arrOfFlights[i].aTime}</p>
+                            <p className="card-text">Departure From: ${arrOfFlights[i].toName}</p>
+                            <p className="card-text">Arrival at: ${arrOfFlights[i].fromName}</p>
+                        </div>
+                    </div>
+                </div>`;
+        if (i + 1 < arrOfFlights.length) {
+            formattedHTML += `
+                <div className="col-md-6">
+                    <div className="card">
+                        <img src="./assets/airline.jpg" style={{ width: '100%', height: '300px', objectFit: 'cover' }} className="card-img-top" alt="Airline" />
+                        <div className="card-body">
+                            <h5 className="card-title">Flight Number: ${arrOfFlights[i + 1].flightNum}</h5>
+                            <p className="card-text">Airline Company: ${arrOfFlights[i + 1].airline}</p>
+                            <p className="card-text">Aircraft: ${arrOfFlights[i + 1].aircraft}</p>
+                            <p className="card-text">Duration: ${arrOfFlights[i + 1].duration}</p>
+                            <p className="card-text">Departure Time: ${arrOfFlights[i + 1].dTime}</p>
+                            <p className="card-text">Arrival Time: ${arrOfFlights[i + 1].aTime}</p>
+                            <p className="card-text">Departure From: ${arrOfFlights[i + 1].toName}</p>
+                            <p className="card-text">Arrival at: ${arrOfFlights[i + 1].fromName}</p>
+                        </div>
+                    </div>
+                </div>`;
+        }
+        formattedHTML += `</div>`;
+                
+       
+    }
 
-        </div>
-    )
+    useEffect(()=> {
+        var cardContainer = document.getElementById("cardContainer")
+        cardContainer.innerHTML = formattedHTML
+    })
+    
+
 }
