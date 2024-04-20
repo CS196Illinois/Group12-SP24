@@ -16,8 +16,9 @@ var arrOfFlights
 
 export default function Page() {
     var searchParams = useSearchParams()
+    console.log(`api called ${searchParams.get("from")}`)
     generatePlan(searchParams.get("from"),searchParams.get("to"),searchParams.get("date"))
-    formatPlan()
+    // formatPlan()
     // processFlightDetails()
     return (
         <div className='position-relative d-flex align-items-center justify-content-center vh-100'>
@@ -85,7 +86,7 @@ function processFlightDetails(err,result) {
     }
     var flightRecords = result['OTA_AirDetailsRS']['FlightDetails']
     
-    //var indexes = Object.keys(flightRecords)
+    var indexes = Object.keys(flightRecords)
     var resultArr = Array(indexes.length)
     console.log(flightRecords)
     for (let i = 0; i < indexes.length; i++) {
@@ -167,8 +168,8 @@ async function generatePlan(from,to ,date) {
     const parseString = require("xml2js").parseString;
     try {
         const response = await axios.request(options);
-        parseString(response,processFlightDetails);
-        console.log(response);
+        parseString(response.data,processFlightDetails);
+        console.log(response.data);
         console.log(arrOfFlights);
     } catch (error) {
         console.error(error);
