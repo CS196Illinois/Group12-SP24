@@ -31,14 +31,14 @@ const FlightCard = ({ flight }) => (
     <div className="col-md-6">
         <div className="card" style={{margin:"2%"}}>
             <div className="card-body">
-                <h5 className="card-title">Flight Number: {flight.flightNum}</h5>
+                <h5 className="card-title">{flight.airline} {flight.flightNum}</h5>
                 <p className="card-text">Airline: {flight.airline}</p>
                 <p className="card-text">Aircraft: {flight.aircraft}</p>
                 <p className="card-text">Duration: {flight.duration}</p>
                 <p className="card-text">Departure Time: {flight.dTime}</p>
                 <p className="card-text">Arrival Time: {flight.aTime}</p>
-                <p className="card-text">Departure From: {flight.toName}</p>
-                <p className="card-text">Arrival At: {flight.fromName}</p>
+                <p className="card-text">Departure From: {flight.to}, {flight.toName} </p>
+                <p className="card-text">Arrival At: {flight.from}, {flight.fromName} </p>
             </div>
         </div>
     </div>
@@ -148,7 +148,7 @@ function processFlightDetails(err,result) {
         var dTime = flightRecords[i]['$']['FLSDepartureDateTime']
         var aTime = flightRecords[i]['$']['FLSArrivalDateTime']
 
-        var temp = new PlanObject(to,from_, toName,fromName,airline,flightNum,aircraft,duration,dTime,aTime)
+        var temp = new PlanObject(to,toName,from_,fromName,airline,flightNum,aircraft,duration,dTime,aTime)
         resultArr[i] = temp
     }
     arrOfFlights = resultArr
@@ -239,6 +239,7 @@ function formatPlan(planObject) {
                         
                         <div className="card-body">
                             <h5 className="card-title">Flight Number: ${arrOfFlights[i].flightNum}</h5>
+                            <h5 className="card-title"> ${arrOfFlights[i].airline} ${arrOfFlights[i].flightNum}</h5>
                             <p className="card-text">Airline Company: ${arrOfFlights[i].airline}</p>
                             <p className="card-text">Aircraft: ${arrOfFlights[i].aircraft}</p>
                             <p className="card-text">Duration: ${arrOfFlights[i].duration}</p>
