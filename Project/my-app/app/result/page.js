@@ -63,16 +63,15 @@ export default function Page() {
 
     // generatePlan()
 
-    generatePlan(searchParams.get("from"),searchParams.get("to"),searchParams.get("date"))
-    console.log(arrOfFlights)
-    useEffect(()=> {
-        async function fetchFlightsWithDelay() {
-            await sleep(2000);
-        }
-        
-    })
+    // generatePlan(searchParams.get("from"),searchParams.get("to"),searchParams.get("date"))
+    // console.log(arrOfFlights)
+    // useEffect(()=> {
+    //     async function fetchFlightsWithDelay() {
+    //         await sleep(2000);
+    //     }
+    //     fetchFlightsWithDelay()
+    // })
     
-    /*
     useEffect(() => {
         
         setFlights(arrOfFlights);
@@ -86,17 +85,19 @@ export default function Page() {
                     `https://timetable-lookup.p.rapidapi.com/TimeTable/${from}/${to}/${date}/`,
                     {
                         headers: {
-                            'X-RapidAPI-Key': 'your-key-here',
+                            'X-RapidAPI-Key': 'f295bb7c5bmsh37718acb071cb6bp1a6733jsn93b5b14ad310',
                             'X-RapidAPI-Host': 'timetable-lookup.p.rapidapi.com',
                         },
                         params: { Results: '25', Connection: 'NONSTOP' },
                     }
                 );
 
-                const xmlData = response.data;
-                const flightDetails = extractFlightDetails(xmlData);
+                const parseString = require("xml2js").parseString;
 
-                setFlights(flightDetails);
+                const xmlData = response.data;
+                parseString(xmlData,processFlightDetails)
+
+                setFlights(arrOfFlights);
             } catch (error) {
                 console.error("Error fetching flights:", error);
             }
@@ -105,7 +106,6 @@ export default function Page() {
         fetchFlights();
         
     }, [searchParams]); // Dependencies ensure this effect only runs when these values change.
-    */
 
     return (
         <div className='position-relative d-flex align-items-center justify-content-center' style={{backgroundImage:`url(${bg.src})`}}>
@@ -113,7 +113,7 @@ export default function Page() {
 
             <div className="container" id="cardContainer">
                 <div className="row mt-5 align-items-center justify-content-center">
-                    {arrOfFlights.map((flight, index) => (
+                    {flights.map((flight, index) => (
                         <FlightCard key={index} flight={flight} />
                     ))}
                 </div>
@@ -152,6 +152,7 @@ function processFlightDetails(err,result) {
         resultArr[i] = temp
     }
     arrOfFlights = resultArr
+    return resultArr
 }
 
 function convertAircraftType(input) {
