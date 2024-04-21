@@ -45,10 +45,10 @@ const FlightCard = ({ flight }) => (
 
 
 
-var arrOfFlights = Array(3);
-arrOfFlights[0] = new PlanObject("SFO", "San Francisco", "ORD", "Chicago", "United", "007", "737", "PT4H46M", "2024-04-18T00:00:00", "2024-04-18T00:00:00");
-arrOfFlights[1] = new PlanObject("JFO", "San Francisco", "ORD", "Chicago", "United", "007", "737", "PT4H46M", "2024-04-18T00:00:00", "2024-04-18T00:00:00");
-arrOfFlights[2] = new PlanObject("JFO", "San Francisco", "ORD", "Chicago", "United", "007", "737", "PT4H46M", "2024-04-18T00:00:00", "2024-04-18T00:00:00");
+var arrOfFlights = Array(25)
+// arrOfFlights[0] = new PlanObject("SFO", "San Francisco", "ORD", "Chicago", "United", "007", "737", "PT4H46M", "2024-04-18T00:00:00", "2024-04-18T00:00:00");
+// arrOfFlights[1] = new PlanObject("JFO", "San Francisco", "ORD", "Chicago", "United", "007", "737", "PT4H46M", "2024-04-18T00:00:00", "2024-04-18T00:00:00");
+// arrOfFlights[2] = new PlanObject("JFO", "San Francisco", "ORD", "Chicago", "United", "007", "737", "PT4H46M", "2024-04-18T00:00:00", "2024-04-18T00:00:00");
 
 
 export default function Page() {
@@ -56,8 +56,9 @@ export default function Page() {
     const [flights, setFlights] = useState([]);
     const searchParams = useSearchParams();
 
-    generatePlan()
-    
+    // generatePlan()
+
+    generatePlan(searchParams.get("from"),searchParams.get("to"),searchParams.get("date"))
     /*
     useEffect(() => {
         
@@ -110,9 +111,7 @@ export default function Page() {
 
 
 
-function getInput() {
-    //TODO: implement a function that will be called when the form is submitted to get the input
-}
+
 
 function processFlightDetails(err,result) {
     if (result['OTA_AirDetailsRS']["FLSWarning"]!=null) {
