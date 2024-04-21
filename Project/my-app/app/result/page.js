@@ -46,6 +46,7 @@ const FlightCard = ({ flight }) => (
 
 
 var arrOfFlights = Array(25)
+
 // arrOfFlights[0] = new PlanObject("SFO", "San Francisco", "ORD", "Chicago", "United", "007", "737", "PT4H46M", "2024-04-18T00:00:00", "2024-04-18T00:00:00");
 // arrOfFlights[1] = new PlanObject("JFO", "San Francisco", "ORD", "Chicago", "United", "007", "737", "PT4H46M", "2024-04-18T00:00:00", "2024-04-18T00:00:00");
 // arrOfFlights[2] = new PlanObject("JFO", "San Francisco", "ORD", "Chicago", "United", "007", "737", "PT4H46M", "2024-04-18T00:00:00", "2024-04-18T00:00:00");
@@ -54,11 +55,22 @@ var arrOfFlights = Array(25)
 export default function Page() {
     
     const [flights, setFlights] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    
     const searchParams = useSearchParams();
+    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
     // generatePlan()
 
     generatePlan(searchParams.get("from"),searchParams.get("to"),searchParams.get("date"))
+    console.log(arrOfFlights)
+    useEffect(()=> {
+        async function fetchFlightsWithDelay() {
+            await sleep(2000);
+        }
+        
+    })
+    
     /*
     useEffect(() => {
         
@@ -121,7 +133,7 @@ function processFlightDetails(err,result) {
     
     var indexes = Object.keys(flightRecords)
     var resultArr = Array(indexes.length)
-    console.log(flightRecords)
+    // console.log(flightRecords)
     for (let i = 0; i < indexes.length; i++) {
         // console.log(flightRecords[0]['$'])
         var to = flightRecords[i]['$']['FLSDepartureCode']
@@ -202,8 +214,8 @@ async function generatePlan(from,to ,date) {
     try {
         const response = await axios.request(options);
         parseString(response.data,processFlightDetails);
-        console.log(response.data);
-        console.log(arrOfFlights);
+        // console.log(response.data);
+        // console.log(arrOfFlights);
     } catch (error) {
         console.error(error);
     }
