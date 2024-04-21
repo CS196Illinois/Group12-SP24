@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
       <body>
         <div className={inter.className}>
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a className="navbar-brand" href="/">IlliniFly</a>
+            <a className="navbar-brand" href="/">IlliniFli</a>
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
                 <a className="nav-link" href="/">Home</a>

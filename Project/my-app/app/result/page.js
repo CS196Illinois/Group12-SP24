@@ -34,9 +34,9 @@ const FlightCard = ({ flight }) => (
                 <h5 className="card-title">{flight.airline} {flight.flightNum}</h5>
                 <p className="card-text">Airline: {flight.airline}</p>
                 <p className="card-text">Aircraft: {flight.aircraft}</p>
-                <p className="card-text">Duration: {flight.duration}</p>
-                <p className="card-text">Departure Time: {flight.dTime}</p>
-                <p className="card-text">Arrival Time: {flight.aTime}</p>
+                <p className="card-text">Duration: {(flight.duration).substring(2)}</p>
+                <p className="card-text">Departure Time: {(flight.dTime).substring(11,16) + " " + (flight.dTime).substring(0,10)}</p>
+                <p className="card-text">Arrival Time: {(flight.aTime).substring(11,16) + " " + (flight.aTime).substring(0,10)}</p>
                 <p className="card-text">Departure From: {flight.to}, {flight.toName} </p>
                 <p className="card-text">Arrival At: {flight.from}, {flight.fromName} </p>
             </div>
@@ -125,7 +125,6 @@ export default function Page() {
 
 
 
-
 function processFlightDetails(err,result) {
     if (result['OTA_AirDetailsRS']["FLSWarning"]!=null) {
         return null
@@ -134,7 +133,7 @@ function processFlightDetails(err,result) {
     
     var indexes = Object.keys(flightRecords)
     var resultArr = Array(indexes.length)
-    // console.log(flightRecords)
+    console.log(flightRecords)
     for (let i = 0; i < indexes.length; i++) {
         // console.log(flightRecords[0]['$'])
         var to = flightRecords[i]['$']['FLSDepartureCode']
@@ -160,12 +159,18 @@ function convertAircraftType(input) {
         if (input[1] == '3') {
             if (input[2] == 'J') {
                 return "Boeing 737-900ER" 
+            } else if (input[2] == 'H') {
+                return "Boeing 737-800"
+            } else if (input[2] == 'W') {
+                return "Boeing 737-700"
             } else {
                 return "Boeing " + input[0]+input[1]+'7-'+input[2]+'00'
             }
             
         } else if (input[1] == 'M') {
             return "Boeing 737 MAX " + input[2]
+        } else if (input == '757') {
+            return "Boeing 757"
         } else if (input[1] == '5') {
             return "Boeing " + input[0]+input[1]+'7-'+input[2]+'00'
         } else if (input[1] == '7') {
@@ -185,8 +190,8 @@ function convertAircraftType(input) {
 
         }
         return "Airbus A" + input
-    } else if (input[0] == '1') {
-        return "Embraer " + input
+    } else if (input == 'E75') {
+        return "Embraer E175"
     } else {
         return input
     }
