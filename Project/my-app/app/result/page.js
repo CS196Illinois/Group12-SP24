@@ -202,7 +202,7 @@ async function generatePlan(from,to ,date) {
         method: 'GET',
         url: `https://timetable-lookup.p.rapidapi.com/TimeTable/${from}/${to}/${date}/`,
         headers: {
-            'X-RapidAPI-Key': 'bc145956d8msh6f48b3898399cb5p1ed48ajsn24f43d925de7',
+            'X-RapidAPI-Key': 'f295bb7c5bmsh37718acb071cb6bp1a6733jsn93b5b14ad310',
             'X-RapidAPI-Host': 'timetable-lookup.p.rapidapi.com'
         },
         params: {
@@ -256,6 +256,7 @@ function formatPlan(planObject) {
                         <img src="./assets/airline.jpg" style={{ width: '100%', height: '300px', objectFit: 'cover' }} className="card-img-top" alt="Airline" />
                         <div className="card-body">
                             <h5 className="card-title">Flight Number: ${arrOfFlights[i + 1].flightNum}</h5>
+                            <h5 className="card-title"> ${arrOfFlights[i + 1].airline} ${arrOfFlights[i + 1].flightNum}</h5>
                             <p className="card-text">Airline Company: ${arrOfFlights[i + 1].airline}</p>
                             <p className="card-text">Aircraft: ${arrOfFlights[i + 1].aircraft}</p>
                             <p className="card-text">Duration: ${arrOfFlights[i + 1].duration}</p>
