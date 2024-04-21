@@ -4,6 +4,7 @@ import React from "react"
 import ResultPage from './resultpage';
 import { useSearchParams } from "next/navigation";
 import axios from 'axios';
+import bg from "../hnbay.jpg"
 
 const xmlFile = `<?xml version="1.0" encoding="UTF-8"?>
 <OTA_AirDetailsRS PrimaryLangID="eng" Version="1.0" TransactionIdentifier="" xmlns="http://www.opentravel.org/OTA/2003/05">
@@ -107,8 +108,8 @@ export default function Page() {
     */
 
     return (
-        <div className='position-relative d-flex align-items-center justify-content-center vh-100'>
-            <img src="./hnbay.jpg" className="img-fluid position-absolute top-0 start-0 w-100 h-100" style={{ objectFit: 'cover', zIndex: -10 }} alt="background" />
+        <div className='position-relative d-flex align-items-center justify-content-center' style={{backgroundImage:`url(${bg.src})`}}>
+            {/* <img src="" className="img-fluid position-absolute top-0 start-0 w-100 h-100" style={{ objectFit: 'cover', zIndex: -10 }} alt="background" /> */}
 
             <div className="container" id="cardContainer">
                 <div className="row mt-5 align-items-center justify-content-center">

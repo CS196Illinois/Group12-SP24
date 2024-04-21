@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
 
 
           </div>
-          <footer className="footer bg-light text-center text-lg-start">
+          <footer className="footer bg-light text-center text-lg-start" style={{position:"relative"}}>
             <div className="text-center p-3" style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}>
               <a className="text-dark" href="/aboutus">About Us</ a> |
             </div>
