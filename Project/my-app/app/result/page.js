@@ -6,7 +6,7 @@ import { useSearchParams } from "next/navigation";
 import axios from 'axios';
 import bg from "../hnbay.jpg"
 
-const xmlFile = `<?xml version="1.0" encoding="UTF-8"?>
+const testxmlFile = `<?xml version="1.0" encoding="UTF-8"?>
 <OTA_AirDetailsRS PrimaryLangID="eng" Version="1.0" TransactionIdentifier="" xmlns="http://www.opentravel.org/OTA/2003/05">
   <Success/>
   <FLSWarning FLSWarningCode="-6" FLSWarningName="No flights found"/>
@@ -192,6 +192,8 @@ function convertAircraftType(input) {
         return "Airbus A" + input
     } else if (input == 'E75') {
         return "Embraer E175"
+    } else if (input == 'E70') {
+        return "Embraer E170"
     } else {
         return input
     }
